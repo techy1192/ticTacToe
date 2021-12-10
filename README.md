@@ -45,5 +45,12 @@ open the jupyer notebook file *ticTacToe_RL.ipynb* in the browser and run.
 you can adjust the training parameters in Config class or using Config class object 
 
 
+## **Stats Generation**
+
+Run *stats.py* or *ticTacToe_stats_generation.ipynb* for stats generation
+
+```
+$ python3 stats.py --test-epochs 100 
+```
 
 
