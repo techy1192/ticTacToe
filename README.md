@@ -50,7 +50,7 @@ you can adjust the training parameters in Config class or using Config class obj
 Run *stats.py* or *ticTacToe_stats_generation.ipynb* for stats generation
 
 ```
-$ python3 stats.py --test-epochs 100 
+$ python3 stats.py -sm 1 -p1 policy_p1 -p2 policy_p2 --test-epochs 100
 ```
 
 
