@@ -27,7 +27,11 @@ parser.add_argument('--win-reward-p2', '-rp2', required=False, type=float, defau
 parser.add_argument('--stats-mode', '-sm', required=False, type=int, default=0,
                     help='Enabling Stats mode does not print the board messages in the logs') 
 parser.add_argument('--start-player', '-sp', required=False, type=str, default=None,
-                    help='Start player; computer or human, default -random')                    
+                    help='Start player; computer or human, default -random')  
+parser.add_argument('--policy-p1', '-p1', required=False, type=str, default='policies/policy_p1',
+                    help='Policy file path for the computer/agent to use')
+parser.add_argument('--policy-p2', '-p2', required=False, type=str, default='policies/policy_p2',
+                    help='Policy file path for the computer/agent to use')                                      
                                                                                                                 
 args = parser.parse_args()
 
@@ -48,13 +52,10 @@ if __name__ == "__main__":
 	# training
 	p1 = Player("p1", config=config)
 	p2 = Player("p2", config=config)
-
+	p1.loadPolicy(args.policy_p1)
+	p2.loadPolicy(args.policy_p2)
 	st = State(p1, p2, config=config)
-	if args.train == 1:
-		print("Training...")
-		st.play()
-		p1.savePolicy()
-		p2.savePolicy()
+        
 	#do_testing (st, args.test_epochs)
 	print("Testing...")
 	win_count = 0
